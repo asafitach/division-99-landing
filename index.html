@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>הצטרפו לאוגדה 99 | גיוס שלב ב' ומילואים משמעותיים</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="אוגדה 99 (עוצבת הבזק) מזמינה עולים חדשים, בוגרי ישיבות ואנשי שירות לאומי לשירות מילואים משמעותי ותורם. הצטרפו לטירונות שלב ב' והשתלבו במערך הלוגיסטי ביחידות הקדמיות.">
+  <meta name="keywords"
+    content="אוגדה 99, גיוס שלב ב, עוצבת הבזק, מילואים, שלב ב, אלוג 99, אגד לוגיסטי, גיוס מילואים, בוגרי ישיבות, עולים חדשים">
+  <meta name="author" content="אוגדה 99 - צה״ל">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="הצטרפו לאוגדה 99 | גיוס שלב ב' ומילואים">
+  <meta property="og:description"
+    content="עולה חדש/ה? בוגר ישיבה? שירות מילואים משמעותי באחת האוגדות הלוחמות והרב-זירתיות המובילות בצה״ל.">
+  <meta property="og:image" content="logo.png">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+
+  <!-- FontAwesome Icons for modern tactical graphics -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Logo Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+</head>
+
+<body>
+
+  <!-- Floating WhatsApp Widget -->
+  <a href="https://chat.whatsapp.com/LMHQzzmi4phFQtlLQSLyyt" class="whatsapp-float" target="_blank"
+    title="הצטרפו לקבוצת הוואצאפ" id="whatsapp-floating-btn">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Header & Navigation -->
+  <header id="header">
+    <div class="container nav-container">
+      <div class="logo-wrapper">
+        <img src="logo.png" alt="לוגו אוגדה 99" class="logo-img">
+        <div class="logo-text">
+          <span class="logo-title">אוגדה 99</span>
+          <span class="logo-subtitle">עוצבת הבזק</span>
+        </div>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="תפריט ניווט">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="#about" class="nav-link">על האוגדה</a></li>
+        <li><a href="#eligibility" class="nav-link">למי זה מתאים?</a></li>
+        <li><a href="#checker" class="nav-link">בדיקת התאמה</a></li>
+        <li><a href="#timeline" class="nav-link">שלבי המסלול</a></li>
+        <li><a href="personal.html" class="nav-link">אזור אישי</a></li>
+        <li><a href="https://docs.google.com/forms/d/1YCV9Hp1XuppwhIbYarB6UV4nIiXpUxnxAxlByIyOrrk/viewform"
+            target="_blank" class="nav-cta" id="nav-cta-btn">הרשמה מהירה <i class="fas fa-arrow-left"
+              style="margin-right: 8px;"></i></a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="hero">
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="badge">
+          <span class="badge-dot"></span>
+          <span>הרשמה בעיצומה לטירונות שלב ב'</span>
+        </div>
+        <h1 class="hero-title">
+          אוגדה 99 <span>מזמינה אתכם להצטרף.</span>
+        </h1>
+        <p class="hero-description">
+          עולה חדש/ה? בוגר ישיבה ("תורתו אומנותו")? עברת שירות לאומי אבל רוצה להשלים את התרומה ולבצע שירות מילואים
+          משמעותי? אוגדה 99 קוראת לך לקחת חלק בתמיכה בלחימה הרב-זירתית.
+        </p>
+        <div class="hero-ctas">
+          <a href="https://docs.google.com/forms/d/1YCV9Hp1XuppwhIbYarB6UV4nIiXpUxnxAxlByIyOrrk/viewform"
+            target="_blank" class="btn btn-primary" id="hero-submit-btn">
+            להרשמה לשלב ב' <i class="fas fa-file-signature"></i>
+          </a>
+          <a href="#checker" class="btn btn-secondary" id="hero-check-btn">
+            בדיקת התאמה מהירה <i class="fas fa-user-check"></i>
+          </a>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-shield-glow"></div>
+        <img src="logo.png" alt="סמל אוגדה 99" class="hero-logo">
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Ribbon -->
+  <section class="stats-ribbon">
+    <div class="container stats-grid">
+      <div class="stat-card">
+        <div class="stat-number">99</div>
+        <div class="stat-label">אוגדת חי״ר קלה</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">02</div>
+        <div class="stat-label">הכשרת רובאי יסוד</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-number">2-3</div>
+        <div class="stat-label">שבועות טירונות (ללא שו״ש)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="about section" id="about">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="section-subtitle">מי אנחנו</span>
+        <h2 class="section-title">שירות משמעותי ב<span>אוגדה 99</span></h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <h3>כוח תמרון רב-זירתי וגמיש</h3>
+          <p>
+            אוגדה 99 היא אחת מהאוגדות הלוחמות הקלות של צה"ל, מה שאומר שיכולת ההפעלה של האוגדה היא <strong>"רב
+              זירתית"</strong> - האוגדה יכולה להגיע במהירות לכל אזור שבו נדרשת התקדמות מבצעית (צפון, דרום, עזה).
+          </p>
+          <p>
+            באוגדה ישנן חטיבות לוחמות ומפקדה. בכל מקום שבו פועלים לוחמים בחזית, קיימת מעטפת שלמה של תומכי לחימה שבלעדיהם
+            אי אפשר לנצח.
+          </p>
+
+          <div class="about-features">
+            <div class="about-feature-item">
+              <div class="feature-icon-wrapper">
+                <i class="fas fa-shield-halved"></i>
+              </div>
+              <div class="feature-text">
+                <h4>מעמד יחידה לוחמת</h4>
+                <p>רוב יחידות האוגדה נחשבות יחידות לוחמות לענייני מענקים והטבות מילואים.</p>
+              </div>
+            </div>
+
+            <div class="about-feature-item">
+              <div class="feature-icon-wrapper">
+                <i class="fas fa-truck-monster"></i>
+              </div>
+              <div class="feature-text">
+                <h4>מגוון תפקידי מעטפת ותומכ״ל</h4>
+                <p>רפואה, שלישות, אחזקה, תיקונים, שינועים, ניודים ועוד תפקידים שמשפיעים ישירות על המערכה.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="about-visual">
+          <div class="alog-card">
+            <span class="alog-badge"><i class="fas fa-dharmachakra" style="color: var(--color-gold);"></i></span>
+            <h3>הכירו את חטיבת הסיוע הלוגיסטי</h3>
+            <p>
+              חטיבת הסיוע של האוגדה מוביל את כלל מאמצי הלוגיסטיקה, הרפואה והאחזקה בחזית ובעורף האוגדתי.
+              השירות בחטיבה הוא לב הפעימות של הכוח המסתער.
+            </p>
+            <a href="https://www.alog99.com/" target="_blank" class="btn btn-secondary" style="width: 100%;"
+              id="alog-link-btn">
+              לבקר באתר חטיבת הסיוע 99 <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Service Conditions Highlight Banner -->
+      <div class="service-info-banner" id="conditions">
+        <div class="service-info-grid">
+          <div class="service-info-icon">
+            <i class="fas fa-star-of-david"></i>
+          </div>
+          <div class="service-info-text">
+            <h4>הבהרה חשובה לגבי אופי השירות ואורח החיים</h4>
+            <p>
+              המסגרת באוגדה <strong>אינה חרדית בהגדרה</strong>. עם זאת, האוכל ביחידה הוא <strong>מהודר</strong> וקיימים
+              כל התנאים הנדרשים לקיים אורח חיים יהודי דתי מלא.
+              היחידה עצמה היא מעורבת ומשרתות בה נשים במגוון רחב של תפקידים באוגדה, אך בשירות השוטף ובימי המשמרות
+              <strong>לא נדרש קשר ישיר או עבודה משותפת איתן</strong>.
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Eligibility Criteria Section -->
+  <section class="eligibility section" id="eligibility">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="section-subtitle">סינון ודרישות</span>
+        <h2 class="section-title">האם השירות <span>מתאים לך?</span></h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="eligibility-grid">
+        <!-- Fit Box -->
+        <div class="criteria-box fit">
+          <h3 class="criteria-title fit">
+            <i class="fas fa-check-circle"></i> למי זה מתאים
+          </h3>
+          <ul class="criteria-list">
+            <li class="criteria-item">
+              <span class="criteria-icon"><i class="fas fa-check"></i></span>
+              <div>
+                <strong>שאיפה לתרומה:</strong> מי שרוצה שירות מילואים משמעותי, אמיתי ומשפיע.
+              </div>
+            </li>
+            <li class="criteria-item">
+              <span class="criteria-icon"><i class="fas fa-check"></i></span>
+              <div>
+                <strong>טווח גילאים:</strong> גברים ונשים בגילאי 27 עד 45.
+              </div>
+            </li>
+            <li class="criteria-item">
+              <span class="criteria-icon"><i class="fas fa-check"></i></span>
+              <div>
+                <strong>התחייבות לתאריכים:</strong> מי שיכול להצטרף במלואו לתאריכי הטירונות שנקבעו.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Unfit Box -->
+        <div class="criteria-box unfit">
+          <h3 class="criteria-title unfit">
+            <i class="fas fa-times-circle"></i> למי זה לא מתאים
+          </h3>
+          <ul class="criteria-list">
+            <li class="criteria-item">
+              <span class="criteria-icon"><i class="fas fa-times"></i></span>
+              <div>
+                <strong>סוג הפטור:</strong> מי שקיבל/ה פטור משירות צבאי על רקע נפשי, עריקות או רישום פלילי.
+              </div>
+            </li>
+            <li class="criteria-item">
+              <span class="criteria-icon"><i class="fas fa-times"></i></span>
+              <div>
+                <strong>מניעה רפואית:</strong> מי שיש לו מגבלה בריאותית או רפואית המונעת ממנו לשרת כחייל.
+              </div>
+            </li>
+            <li class="criteria-item">
+              <span class="criteria-icon"><i class="fas fa-times"></i></span>
+              <div>
+                <strong>אי-זמינות לטירונות:</strong> מי שלא יוכל לקחת חלק פעיל בשבועיים המלאים של הטירונות.
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Checker Section -->
+  <section class="section" id="checker">
+    <div class="container" style="max-width: 800px;">
+      <div class="checker-box" id="eligibility-checker">
+        <h3 class="checker-title">מחשבון בדיקת התאמה מהיר</h3>
+        <p class="checker-intro text-muted">ענו על השאלות הבאות וקבלו אינדיקציה מיידית להתאמתכם למסלול הגיוס של אוגדה
+          99:</p>
+
+        <form class="checker-form" id="checker-form" onsubmit="event.preventDefault();">
+          <div class="form-group">
+            <label for="user-age" class="form-label">מה הגיל שלך? (טווח נדרש: 27-45)</label>
+            <input type="number" id="user-age" class="form-input-number" min="18" max="70"
+              placeholder="הכנס גיל במספר..." required>
+          </div>
+
+          <div class="checkbox-group">
+            <label class="checkbox-label">
+              <input type="checkbox" id="check-mental-exemption">
+              <span class="checkbox-custom"></span>
+              <span>אין לי פטור על רקע נפשי, עריקות או רישום פלילי</span>
+            </label>
+
+            <label class="checkbox-label">
+              <input type="checkbox" id="check-health">
+              <span class="checkbox-custom"></span>
+              <span>אין לי מניעה בריאותית/רפואית לשרת בבסיס סגור</span>
+            </label>
+
+            <label class="checkbox-label">
+              <input type="checkbox" id="check-dates">
+              <span class="checkbox-custom"></span>
+              <span>אני פנוי/ה להשתתף בטירונות של 2-3 שבועות מלאים</span>
+            </label>
+
+            <label class="checkbox-label">
+              <input type="checkbox" id="check-loyalty">
+              <span class="checkbox-custom"></span>
+              <span>אני מבין/ה שההצטרפות לטירונות היא על דעת שירות ביחידות אוגדה 99 בלבד</span>
+            </label>
+          </div>
+
+          <button type="submit" class="checker-btn" id="checker-submit-btn">בדוק התאמה כעת <i
+              class="fas fa-calculator"></i></button>
+        </form>
+
+        <!-- Results Blocks -->
+        <div class="checker-result eligible" id="result-eligible">
+          <div class="result-title"><i class="fas fa-trophy" style="color: var(--color-gold); margin-left: 8px;"></i>
+            נמצאת מתאים/ה עקרונית!</div>
+          <p class="result-desc">על פי הנתונים שהזנת, הנך עומד/ת בתנאי הסף הראשוניים של אוגדה 99. אנו מזמינים אותך להגיש
+            מועמדות רשמית בטופס הרישום.</p>
+          <a href="https://docs.google.com/forms/d/1YCV9Hp1XuppwhIbYarB6UV4nIiXpUxnxAxlByIyOrrk/viewform"
+            target="_blank" class="result-cta">להרשמה בטופס גוגל <i class="fas fa-external-link-alt"
+              style="margin-right: 6px;"></i></a>
+        </div>
+
+        <div class="checker-result not-eligible" id="result-not-eligible">
+          <div class="result-title"><i class="fas fa-exclamation-triangle"
+              style="color: var(--color-red); margin-left: 8px;"></i> אי התאמה לתנאי הסף</div>
+          <p class="result-desc" id="not-eligible-reason">לצעירנו, אחד או יותר מהנתונים שהזנת אינו תואם את דרישות הסף של
+            אוגדה 99 למסלול זה.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline Section -->
+  <section class="timeline-section section" id="timeline">
+    <div class="container">
+      <div class="section-title-wrapper">
+        <span class="section-subtitle">איך זה עובד?</span>
+        <h2 class="section-title">שלבי <span>המסלול</span></h2>
+        <div class="section-title-line"></div>
+      </div>
+
+      <div class="timeline">
+        <!-- Step 1 -->
+        <div class="timeline-container right">
+          <div class="timeline-content">
+            <div class="timeline-step">שלב 01</div>
+            <h3>הרשמה לשלב ב'</h3>
+            <p>ממלאים את טופס הרישום הרשמי של האוגדה. הקישור זמין בראש הדף ובחלקי הדף השונים.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="timeline-container left">
+          <div class="timeline-content">
+            <div class="timeline-step">שלב 02</div>
+            <h3>סינון ראשוני</h3>
+            <p>צוות הגיוס של האוגדה עובר על הפרטים ומוודא עמידה מלאה בתנאי הקבלה הבסיסיים.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="timeline-container right">
+          <div class="timeline-content">
+            <div class="timeline-step">שלב 03</div>
+            <h3>צו ראשון למתאימים</h3>
+            <p>זימון ללשכת הגיוס לצורך ביצוע בדיקות, ראיונות וקביעת נתונים רשמיים לשירות מילואים.</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="timeline-container left">
+          <div class="timeline-content">
+            <div class="timeline-step">שלב 04</div>
+            <h3>הזמנה לטירונות</h3>
+            <p>קבלת צו גיוס רשמי לטירונות בתאריכים שנקבעו לפי מגדר והקצאות היחידה.</p>
+          </div>
+        </div>
+
+        <!-- Step 5 -->
+        <div class="timeline-container right">
+          <div class="timeline-content">
+            <div class="timeline-step">שלב 05</div>
+            <h3>טירונות שבועיים</h3>
+            <p>2-3 שבועות של הכשרת חייל בסיסית (רובאי 02) בבסיס סגור. הטירונות אינה כוללת שהייה בשישי ושבת (יוצאים הביתה
+              לסופ"ש).</p>
+          </div>
+        </div>
+
+        <!-- Step 6 -->
+        <div class="timeline-container left">
+          <div class="timeline-content">
+            <div class="timeline-step">שלב 06</div>
+            <h3>קורסים מקצועיים</h3>
+            <p>הכשרה מקצועית ייעודית בהתאם לתפקיד אליו שובצתם באוגדה (מקצועות הלוגיסטיקה, הרפואה, השלישות ועוד).</p>
+          </div>
+        </div>
+
+        <!-- Step 7 -->
+        <div class="timeline-container right">
+          <div class="timeline-content">
+            <div class="timeline-step">שלב 07</div>
+            <h3>הצטרפות לשירות מילואים פעיל</h3>
+            <p>השתלבות מלאה בסבב המילואים הבא של יחידות אוגדה 99 לשירות משמעותי במערך המגן על המדינה.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Action Info Block -->
+  <section class="action-info">
+    <div class="container">
+      <div class="action-card">
+        <h2 class="action-title">מועדי גיוס <span>קרובים</span></h2>
+        <p class="action-desc">שימו לב לתאריכי הגיוס לטירונות הקרובה. ההצטרפות לטירונות היא על דעת הצטרפות ליחידות שלנו
+          בלבד!</p>
+
+        <div class="dates-grid">
+          <div class="date-box">
+            <span class="date-icon"><i class="fas fa-person" style="color: var(--color-gold);"></i></span>
+            <div class="date-title">טירונות גברים</div>
+            <div class="date-value">13.07.26</div>
+          </div>
+
+          <div class="date-box highlight">
+            <span class="date-icon"><i class="fas fa-person-dress" style="color: var(--color-red-hover);"></i></span>
+            <div class="date-title">טירונות נשים</div>
+            <div class="date-value"> אין מועד כרגע לגיוס לאוגדה</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Critical Banner -->
+  <section class="section"
+    style="background-color: var(--bg-secondary); border-top: 1px solid rgba(178,28,28,0.25); border-bottom: 1px solid rgba(178,28,28,0.25);">
+    <div class="container" style="max-width: 900px; text-align: center;">
+      <i class="fas fa-exclamation-triangle" style="font-size: 3rem; color: var(--color-red); margin-bottom: 24px;"></i>
+      <h2 style="font-size: 2.2rem; color: var(--text-primary); margin-bottom: 20px; font-family: var(--font-display);">
+        מידע קריטי על תנאי השירות!</h2>
+      <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.8; text-align: right; margin-bottom: 0;">
+        אנחנו יחידה קדמית שנחשבת לוחמת, ולכן תזכו ב<strong>הטבות ומענקים כמו לוחמים</strong>. <br>
+        השירות מבוצע ב<strong>בסיס סגור</strong> הכולל לינה במתקנים צבאיים.<br>
+        בזמן פעילות מבצעית/סבבי מילואים פעילים, תנאי השירות הם של <strong>שבוע-שבוע (כולל שבת)</strong>. זה אומר שבוע
+        מלא בבסיס ושבוע מלא בבית (כאשר גם על השבוע בבית אתם זכאים לימי מילואים ותגמול מלא).
+      </p>
+    </div>
+  </section>
+
+  <!-- Final CTA Section -->
+  <section class="cta-section" id="register">
+    <div class="container">
+      <div class="cta-box">
+        <h2>מוכנים לעשות שינוי אמיתי?</h2>
+        <p>מלאו את טופס הרישום או הצטרפו לקבוצת הוואצאפ לעדכונים, מענה על שאלות וקשר ישיר עם רכזי הגיוס.</p>
+        <div class="cta-buttons">
+          <a href="https://docs.google.com/forms/d/1YCV9Hp1XuppwhIbYarB6UV4nIiXpUxnxAxlByIyOrrk/viewform"
+            target="_blank" class="btn btn-primary" style="font-size: 1.2rem; padding: 18px 45px;"
+            id="final-submit-btn">
+            להרשמה בטופס גוגל <i class="fas fa-file-signature"></i>
+          </a>
+          <a href="https://chat.whatsapp.com/LMHQzzmi4phFQtlLQSLyyt" target="_blank" class="btn btn-secondary"
+            style="font-size: 1.2rem; padding: 18px 45px; background-color: #25d366; border-color: #128c7e;"
+            id="final-whatsapp-btn">
+            לקבוצת הוואצאפ לעדכונים <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <img src="logo.png" alt="לוגו אוגדה 99" class="footer-logo">
+      <ul class="footer-links">
+        <li><a href="#about" class="footer-link">על האוגדה</a></li>
+        <li><a href="#eligibility" class="footer-link">תנאי קבלה</a></li>
+        <li><a href="#checker" class="footer-link">בדיקת התאמה</a></li>
+        <li><a href="personal.html" class="footer-link">אזור אישי</a></li>
+        <li><a href="https://www.alog99.com/" target="_blank" class="footer-link">אתר האלו"ג</a></li>
+      </ul>
+      <div class="footer-text">
+        דף גיוס רשמי - אוגדה 99 (עוצבת הבזק) &copy; 2026. כל הזכויות שמורות לצה"ל.
+      </div>
+      <div class="footer-copyright">
+        נבנה בגאווה לתמיכה במאמץ הגיוס והתרומה למדינה ע"י אסף איטח.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app.js"></script>
+</body>
+
+</html>
