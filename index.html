@@ -38,6 +38,41 @@
     <i class="fab fa-whatsapp"></i>
   </a>
 
+  <!-- Event Calendar Modal Announcement Popup -->
+  <div class="event-modal-overlay" id="event-modal-overlay">
+    <div class="event-modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-event-title">
+      <button class="event-modal-close" id="event-modal-close-btn" aria-label="סגור">&times;</button>
+      
+      <div class="event-modal-header">
+        <span class="event-badge">
+          <i class="fas fa-video"></i> כנס הסברה אונליין בגוגל מיט
+        </span>
+        <h2 class="event-modal-title" id="modal-event-title">
+          בואו והצטרפו לכנס אונליין שבו נפרט על התהליך והטירונות המתקרבת
+        </h2>
+      </div>
+
+      <div class="event-modal-body">
+        <p class="event-modal-subtitle">
+          <i class="fas fa-exclamation-circle" style="margin-left: 6px;"></i> הכנס הינו כנס חובה למי שמעוניין להצטרף לטירונות
+        </p>
+
+        <div class="event-modal-cta-box">
+          <a target="_blank"
+             href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NmdzbWNjaHBjZGgzYWI5ZzZrcmplYjlrNmdvNjRiOXA2cGdqZWI5aTYxajM0Y2IyNnRnbTRkcGdjbyAxY2JlMGE5M2MxZTkyZmQ3MDY0N2Y4YjYxMmQ2MTA2MzIyNzcyYmJkYjYwODE5YTRmMDI2ZTQ3YWQ1YmI5ZTA5QGc&amp;tmsrc=1cbe0a93c1e92fd70647f8b612d6106322772bbdb60819a4f026e47ad5bb9e09%40group.calendar.google.com"
+             class="btn-calendar-primary" id="modal-calendar-btn">
+            <i class="fab fa-google" style="margin-left: 8px;"></i> להוספת האירוע ליומן גוגל
+            <img border="0" src="https://calendar.google.com/calendar/images/ext/gc_button1_iw.gif" alt="Google Calendar" class="calendar-img-badge">
+          </a>
+        </div>
+      </div>
+
+      <div class="event-modal-footer">
+        <button class="btn-modal-dismiss" id="event-modal-dismiss-btn">המשך לאתר</button>
+      </div>
+    </div>
+  </div>
+
   <!-- Header & Navigation -->
   <header id="header">
     <div class="container nav-container">
@@ -87,6 +122,11 @@
           <a href="https://docs.google.com/forms/d/1YCV9Hp1XuppwhIbYarB6UV4nIiXpUxnxAxlByIyOrrk/viewform"
             target="_blank" class="btn btn-primary" id="hero-submit-btn">
             להרשמה לשלב ב' <i class="fas fa-file-signature"></i>
+          </a>
+          <a target="_blank"
+            href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NmdzbWNjaHBjZGgzYWI5ZzZrcmplYjlrNmdvNjRiOXA2cGdqZWI5aTYxajM0Y2IyNnRnbTRkcGdjbyAxY2JlMGE5M2MxZTkyZmQ3MDY0N2Y4YjYxMmQ2MTA2MzIyNzcyYmJkYjYwODE5YTRmMDI2ZTQ3YWQ1YmI5ZTA5QGc&amp;tmsrc=1cbe0a93c1e92fd70647f8b612d6106322772bbdb60819a4f026e47ad5bb9e09%40group.calendar.google.com"
+            class="btn btn-gold-calendar" id="hero-calendar-btn">
+            הוספת הכנס ליומן גוגל <i class="fab fa-google" style="margin-right: 6px;"></i>
           </a>
           <a href="#checker" class="btn btn-secondary" id="hero-check-btn">
             בדיקת התאמה מהירה <i class="fas fa-user-check"></i>
@@ -413,11 +453,24 @@
   <section class="action-info">
     <div class="container">
       <div class="action-card">
-        <h2 class="action-title">מועדי גיוס <span>קרובים</span></h2>
-        <p class="action-desc">שימו לב לתאריכי הגיוס לטירונות הקרובה. ההצטרפות לטירונות היא על דעת הצטרפות ליחידות שלנו
-          בלבד!</p>
+        <h2 class="action-title">מועדי גיוס <span>וכנס הסברה</span></h2>
+        <p class="action-desc">שימו לב לתאריכי הגיוס לטירונות הקרובה ולכנס ההסברה האונליין ב-Google Meet.</p>
 
-        <div class="dates-grid">
+        <!-- Google Meet Conference Event Banner -->
+        <div class="calendar-event-card">
+          <div class="calendar-event-badge"><i class="fas fa-video"></i> כנס הסברה אונליין בגוגל מיט</div>
+          <h3 class="calendar-event-title">בואו והצטרפו לכנס אונליין שבו נפרט על התהליך והטירונות המתקרבת</h3>
+          <p class="calendar-event-sub"><i class="fas fa-info-circle"></i> הכנס הינו כנס חובה למי שמעוניין להצטרף לטירונות</p>
+          <a target="_blank"
+             href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NmdzbWNjaHBjZGgzYWI5ZzZrcmplYjlrNmdvNjRiOXA2cGdqZWI5aTYxajM0Y2IyNnRnbTRkcGdjbyAxY2JlMGE5M2MxZTkyZmQ3MDY0N2Y4YjYxMmQ2MTA2MzIyNzcyYmJkYjYwODE5YTRmMDI2ZTQ3YWQ1YmI5ZTA5QGc&amp;tmsrc=1cbe0a93c1e92fd70647f8b612d6106322772bbdb60819a4f026e47ad5bb9e09%40group.calendar.google.com"
+             class="btn-calendar-action">
+             <i class="fab fa-google" style="margin-left: 8px;"></i>
+             <span>להוספת האירוע ליומן גוגל</span>
+             <img border="0" src="https://calendar.google.com/calendar/images/ext/gc_button1_iw.gif" alt="Google Calendar" style="height: 20px; border-radius: 3px;">
+          </a>
+        </div>
+
+        <div class="dates-grid" style="margin-top: 30px;">
           <div class="date-box">
             <span class="date-icon"><i class="fas fa-person" style="color: var(--color-gold);"></i></span>
             <div class="date-title">טירונות גברים</div>

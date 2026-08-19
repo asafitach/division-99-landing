@@ -28,15 +28,17 @@
 
 // ==================== CONFIGURATION ====================
 // Replace this with the actual Spreadsheet ID of "Division 99 Recruitment Database"
-var TARGET_SPREADSHEET_ID = "YOUR_TARGET_SPREADSHEET_ID_HERE"; 
-var TARGET_SHEET_3_NAME = "גליון 3";
-var TARGET_SHEET_1_NAME = "גיליון1"; // Can be changed to "גיליון 1" if there is a space
+var TARGET_SPREADSHEET_ID = "YOUR_TARGET_SPREADSHEET_ID_HERE";
+var STATUS_SHEET = "STATUS";
+var DB_SHEET = "DB"; // Can be changed to "גיליון 1" if there is a space
 
 var COL_C = 3; // Source Column C (שם/טלפון וכד')
 var COL_D = 4; // Source Column D (סטטוס/שלב וכד')
 var COL_E = 5; // Source Column E
 
-var TARGET_COL_M = 13; // Column M for Sheet 3
+var TARGET_COL_L = 12; // Column L for status sheet - new registration
+
+var SOURCE_SHEET_NAME = "תגובות לטופס 1"; // Name of the source sheet (form responses tab)
 // =======================================================
 
 /**
@@ -47,23 +49,27 @@ function onFormSubmitTrigger(e) {
     var valC = "";
     var valD = "";
     var valE = "";
-    
+
     if (e && e.values) {
       // e.values is a 0-indexed array containing the row values
       valC = e.values[COL_C - 1];
       valD = e.values[COL_D - 1];
       valE = e.values[COL_E - 1];
     } else {
-      // Fallback: If run manually, read the last row of the active sheet
-      var activeSheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-      var lastRow = activeSheet.getLastRow();
-      valC = activeSheet.getRange(lastRow, COL_C).getValue();
-      valD = activeSheet.getRange(lastRow, COL_D).getValue();
-      valE = activeSheet.getRange(lastRow, COL_E).getValue();
+      // Fallback: If run manually, read the last row of the source sheet
+      var sourceSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SOURCE_SHEET_NAME);
+      if (!sourceSheet) {
+        Logger.log("Source sheet '" + SOURCE_SHEET_NAME + "' not found.");
+        return;
+      }
+      var lastRow = sourceSheet.getLastRow();
+      valC = sourceSheet.getRange(lastRow, COL_C).getValue();
+      valD = sourceSheet.getRange(lastRow, COL_D).getValue();
+      valE = sourceSheet.getRange(lastRow, COL_E).getValue();
     }
-    
+
     syncData(valC, valD, valE);
-    
+
   } catch (error) {
     Logger.log("Error in onFormSubmitTrigger: " + error.toString());
   }
@@ -76,13 +82,17 @@ function onFormSubmitTrigger(e) {
 function onChangeTrigger(e) {
   try {
     if (e && e.changeType === "INSERT_ROW") {
-      var activeSheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-      var lastRow = activeSheet.getLastRow();
-      
-      var valC = activeSheet.getRange(lastRow, COL_C).getValue();
-      var valD = activeSheet.getRange(lastRow, COL_D).getValue();
-      var valE = activeSheet.getRange(lastRow, COL_E).getValue();
-      
+      var sourceSheet = SpreadsheetApp.getActiveSpreadsheet().getSheetByName(SOURCE_SHEET_NAME);
+      if (!sourceSheet) {
+        Logger.log("Source sheet '" + SOURCE_SHEET_NAME + "' not found.");
+        return;
+      }
+      var lastRow = sourceSheet.getLastRow();
+
+      var valC = sourceSheet.getRange(lastRow, COL_C).getValue();
+      var valD = sourceSheet.getRange(lastRow, COL_D).getValue();
+      var valE = sourceSheet.getRange(lastRow, COL_E).getValue();
+
       syncData(valC, valD, valE);
     }
   } catch (error) {
@@ -98,15 +108,15 @@ function syncData(valC, valD, valE) {
     Logger.log("Please update TARGET_SPREADSHEET_ID with your actual Spreadsheet ID.");
     return;
   }
-  
+
   // Open target spreadsheet
   var targetSpreadsheet = SpreadsheetApp.openById(TARGET_SPREADSHEET_ID);
-  
+
   // 1. Copy E column to "גליון 3" at the end of M column
   if (valE) {
     copyToSheet3(targetSpreadsheet, valE);
   }
-  
+
   // 2. Copy to "גיליון1": E -> A, C -> B, D -> G
   copyToSheet1(targetSpreadsheet, valC, valD, valE);
 }
@@ -115,45 +125,45 @@ function syncData(valC, valD, valE) {
  * Helper to copy E value to "גליון 3" Column M
  */
 function copyToSheet3(targetSpreadsheet, valE) {
-  var sheet3 = targetSpreadsheet.getSheetByName(TARGET_SHEET_3_NAME);
+  var sheet3 = targetSpreadsheet.getSheetByName(STATUS_SHEET);
   if (!sheet3) {
-    Logger.log("Target sheet '" + TARGET_SHEET_3_NAME + "' not found.");
+    Logger.log("Target sheet '" + STATUS_SHEET + "' not found.");
     return;
   }
-  
-  var lastRowInM = getLastRowInColumn(sheet3, TARGET_COL_M);
+
+  var lastRowInM = getLastRowInColumn(sheet3, TARGET_COL_L);
   var targetRow = lastRowInM + 1;
-  
-  sheet3.getRange(targetRow, TARGET_COL_M).setValue(valE);
-  Logger.log("Copied to " + TARGET_SHEET_3_NAME + " Column M: " + valE);
+
+  sheet3.getRange(targetRow, TARGET_COL_L).setValue(valE);
+  Logger.log("Copied to " + STATUS_SHEET + " Column M: " + valE);
 }
 
 /**
  * Helper to copy values to "גיליון1": E -> A, C -> B, D -> G
  */
 function copyToSheet1(targetSpreadsheet, valC, valD, valE) {
-  var sheet1 = targetSpreadsheet.getSheetByName(TARGET_SHEET_1_NAME);
+  var sheet1 = targetSpreadsheet.getSheetByName(DB_SHEET);
   if (!sheet1) {
-    Logger.log("Target sheet '" + TARGET_SHEET_1_NAME + "' not found. Trying space: 'גיליון 1'...");
+    Logger.log("Target sheet '" + DB_SHEET + "' not found. Trying space: 'גיליון 1'...");
     sheet1 = targetSpreadsheet.getSheetByName("גיליון 1");
   }
-  
+
   if (!sheet1) {
-    Logger.log("Target sheet '" + TARGET_SHEET_1_NAME + "' or 'גיליון 1' not found.");
+    Logger.log("Target sheet '" + DB_SHEET + "' or 'גיליון 1' not found.");
     return;
   }
-  
+
   var nextRow = sheet1.getLastRow() + 1;
-  
+
   // Column A (1) = Source Column E
   if (valE) sheet1.getRange(nextRow, 1).setValue(valE);
-  
+
   // Column B (2) = Source Column C
   if (valC) sheet1.getRange(nextRow, 2).setValue(valC);
-  
+
   // Column G (7) = Source Column D
   if (valD) sheet1.getRange(nextRow, 7).setValue(valD);
-  
+
   Logger.log("Copied to " + sheet1.getName() + " Row " + nextRow + ": A=" + valE + ", B=" + valC + ", G=" + valD);
 }
 
@@ -163,10 +173,10 @@ function copyToSheet1(targetSpreadsheet, valC, valD, valE) {
 function getLastRowInColumn(sheet, columnNumber) {
   var lastRow = sheet.getLastRow();
   if (lastRow === 0) return 0;
-  
+
   var range = sheet.getRange(1, columnNumber, lastRow, 1);
   var values = range.getValues();
-  
+
   for (var i = values.length - 1; i >= 0; i--) {
     if (values[i][0] !== null && values[i][0] !== "") {
       return i + 1;

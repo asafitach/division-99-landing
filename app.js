@@ -115,4 +115,44 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // 5. Event Calendar Popup Modal Logic
+  const eventModalOverlay = document.getElementById('event-modal-overlay');
+  const eventModalCloseBtn = document.getElementById('event-modal-close-btn');
+  const eventModalDismissBtn = document.getElementById('event-modal-dismiss-btn');
+
+  if (eventModalOverlay) {
+    // Show modal popup automatically on site load after 400ms delay for smooth entrance animation
+    setTimeout(() => {
+      eventModalOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden'; // Prevent page scroll while modal is active
+    }, 400);
+
+    const closeModal = () => {
+      eventModalOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    };
+
+    if (eventModalCloseBtn) {
+      eventModalCloseBtn.addEventListener('click', closeModal);
+    }
+    if (eventModalDismissBtn) {
+      eventModalDismissBtn.addEventListener('click', closeModal);
+    }
+
+    // Close when clicking backdrop outside the modal card
+    eventModalOverlay.addEventListener('click', (e) => {
+      if (e.target === eventModalOverlay) {
+        closeModal();
+      }
+    });
+
+    // Close when ESC key is pressed
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && eventModalOverlay.classList.contains('active')) {
+        closeModal();
+      }
+    });
+  }
 });
+

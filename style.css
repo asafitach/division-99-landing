@@ -1582,3 +1582,258 @@ select.form-input-number option {
 .admin-table tbody tr:hover {
   background-color: rgba(68, 91, 68, 0.08);
 }
+
+/* ==========================================================================
+   Event Google Calendar Popup Modal & Calendar CTAs
+   ========================================================================== */
+
+/* Event Modal Popup */
+.event-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(10, 11, 10, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1), visibility 0.4s ease;
+}
+
+.event-modal-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.event-modal-card {
+  background: linear-gradient(145deg, #131a13 0%, #0a0c0a 100%);
+  border: 2px solid var(--color-gold);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9), 0 0 35px var(--color-gold-glow);
+  border-radius: var(--border-radius-lg);
+  max-width: 580px;
+  width: 100%;
+  padding: 40px 32px 32px;
+  position: relative;
+  transform: scale(0.9) translateY(20px);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  text-align: center;
+}
+
+.event-modal-overlay.active .event-modal-card {
+  transform: scale(1) translateY(0);
+}
+
+.event-modal-close {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: var(--text-muted);
+  font-size: 1.8rem;
+  line-height: 1;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-fast);
+}
+
+.event-modal-close:hover {
+  background-color: var(--color-red);
+  color: #ffffff;
+  border-color: var(--color-red);
+  transform: rotate(90deg);
+}
+
+.event-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background-color: rgba(197, 155, 39, 0.15);
+  border: 1px solid var(--color-gold);
+  color: var(--color-gold);
+  font-size: 0.9rem;
+  font-weight: 700;
+  padding: 6px 18px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+.event-modal-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 16px;
+  font-family: var(--font-display);
+}
+
+.event-modal-subtitle {
+  font-size: 0.92rem;
+  color: var(--color-gold-hover);
+  font-weight: 500;
+  margin-bottom: 28px;
+  background: rgba(197, 155, 39, 0.08);
+  padding: 12px 18px;
+  border-radius: var(--border-radius-sm);
+  border-right: 3px solid var(--color-gold);
+  display: inline-block;
+  line-height: 1.5;
+}
+
+.event-modal-cta-box {
+  margin-bottom: 24px;
+}
+
+.btn-calendar-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: linear-gradient(135deg, var(--color-gold), #967414);
+  color: var(--text-dark);
+  font-weight: 800;
+  font-size: 1.15rem;
+  padding: 16px 28px;
+  border-radius: var(--border-radius-md);
+  box-shadow: 0 8px 25px var(--color-gold-glow);
+  transition: var(--transition-smooth);
+  text-decoration: none;
+  width: 100%;
+}
+
+.btn-calendar-primary:hover {
+  background: linear-gradient(135deg, var(--color-gold-hover), var(--color-gold));
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(197, 155, 39, 0.6);
+  color: var(--text-dark);
+}
+
+.calendar-img-badge {
+  height: 24px;
+  vertical-align: middle;
+  border-radius: 4px;
+  transition: transform 0.2s ease;
+}
+
+.btn-calendar-primary:hover .calendar-img-badge {
+  transform: scale(1.05);
+}
+
+.btn-modal-dismiss {
+  background: transparent;
+  border: 1px solid rgba(176, 183, 176, 0.3);
+  color: var(--text-muted);
+  padding: 10px 24px;
+  border-radius: var(--border-radius-sm);
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: var(--transition-fast);
+}
+
+.btn-modal-dismiss:hover {
+  color: var(--text-primary);
+  border-color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Hero Calendar Button */
+.btn-gold-calendar {
+  background: linear-gradient(135deg, rgba(197, 155, 39, 0.2) 0%, rgba(150, 116, 20, 0.25) 100%);
+  color: var(--color-gold);
+  border: 1px solid var(--color-gold);
+  backdrop-filter: blur(5px);
+}
+
+.btn-gold-calendar:hover {
+  background: linear-gradient(135deg, var(--color-gold), #967414);
+  color: var(--text-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px var(--color-gold-glow);
+}
+
+/* Calendar Event Card on Page */
+.calendar-event-card {
+  background: linear-gradient(135deg, rgba(27, 38, 27, 0.8) 0%, rgba(13, 18, 13, 0.95) 100%);
+  border: 1px solid rgba(197, 155, 39, 0.4);
+  border-radius: var(--border-radius-md);
+  padding: 28px 24px;
+  margin-bottom: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+}
+
+.calendar-event-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--color-gold), var(--color-red));
+}
+
+.calendar-event-badge {
+  color: var(--color-gold);
+  font-weight: 700;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.calendar-event-title {
+  font-size: 1.35rem;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+  line-height: 1.4;
+  font-family: var(--font-display);
+}
+
+.calendar-event-sub {
+  font-size: 0.9rem;
+  color: var(--color-gold);
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
+.btn-calendar-action {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: linear-gradient(135deg, var(--color-gold), #967414);
+  color: var(--text-dark);
+  font-weight: 700;
+  padding: 14px 28px;
+  border-radius: var(--border-radius-sm);
+  text-decoration: none;
+  transition: var(--transition-smooth);
+  box-shadow: 0 4px 15px var(--color-gold-glow);
+}
+
+.btn-calendar-action:hover {
+  background: linear-gradient(135deg, var(--color-gold-hover), var(--color-gold));
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(197, 155, 39, 0.5);
+  color: var(--text-dark);
+}
+
