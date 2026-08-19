@@ -1656,6 +1656,16 @@ select.form-input-number option {
   transform: rotate(90deg);
 }
 
+.event-badges-wrap,
+.calendar-event-badges-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 18px;
+}
+
 .event-badge {
   display: inline-flex;
   align-items: center;
@@ -1667,7 +1677,21 @@ select.form-input-number option {
   font-weight: 700;
   padding: 6px 18px;
   border-radius: 50px;
-  margin-bottom: 20px;
+}
+
+.event-date-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, var(--color-red), #851212);
+  border: 1px solid var(--color-red-hover);
+  color: #ffffff;
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 6px 18px;
+  border-radius: 50px;
+  box-shadow: 0 0 15px var(--color-red-glow);
+  letter-spacing: 0.5px;
 }
 
 .event-modal-title {
