@@ -18,76 +18,14 @@
   
   <!-- Logo Favicon -->
   <link rel="icon" type="image/png" href="logo.png">
-
-  <style>
-    .upgrade-wrapper {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 60px 20px 80px;
-    }
-    .upgrade-box {
-      background: var(--bg-secondary);
-      border: 1px solid rgba(197, 155, 39, 0.3);
-      border-radius: var(--border-radius-sm);
-      padding: 52px 48px;
-      max-width: 620px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
-    }
-    .upgrade-icon {
-      font-size: 3.2rem;
-      color: var(--color-gold);
-      margin-bottom: 24px;
-    }
-    .upgrade-title {
-      font-size: 1.8rem;
-      font-weight: 700;
-      color: var(--text-primary);
-      margin-bottom: 14px;
-    }
-    .upgrade-title span {
-      color: var(--color-gold);
-    }
-    .upgrade-desc {
-      font-size: 1.05rem;
-      color: var(--text-muted);
-      line-height: 1.75;
-      margin-bottom: 32px;
-    }
-    .upgrade-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(197, 155, 39, 0.1);
-      border: 1px solid rgba(197, 155, 39, 0.35);
-      color: var(--color-gold);
-      font-size: 0.95rem;
-      font-weight: 600;
-      padding: 10px 22px;
-      border-radius: 50px;
-      margin-bottom: 32px;
-    }
-    .upgrade-back-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: linear-gradient(135deg, var(--color-gold), #a17c18);
-      color: var(--text-dark);
-      font-weight: 700;
-      font-size: 1rem;
-      padding: 13px 30px;
-      border-radius: var(--border-radius-sm);
-      text-decoration: none;
-      transition: var(--transition-fast);
-    }
-    .upgrade-back-btn:hover {
-      opacity: 0.88;
-    }
-  </style>
 </head>
 <body>
+
+  <!-- Floating WhatsApp Widget -->
+  <a href="https://chat.whatsapp.com/LMHQzzmi4phFQtlLQSLyyt" class="whatsapp-float" target="_blank"
+    title="הצטרפו לקבוצת הוואצאפ" id="whatsapp-floating-btn">
+    <i class="fab fa-whatsapp"></i>
+  </a>
 
   <!-- Header & Navigation -->
   <header id="header" class="scrolled">
@@ -120,52 +58,19 @@
   </header>
 
   <!-- Personal Area Main Section -->
-  <section class="hero personal-hero" style="min-height: auto; padding: 140px 0 60px;">
+  <section class="hero personal-hero" style="min-height: auto; padding: 140px 0 50px;">
     <div class="container" style="max-width: 900px; text-align: center; position: relative; z-index: 10;">
       <h1 class="hero-title" style="font-size: 2.8rem; margin-bottom: 16px;">
         אזור אישי <span>ומעקב סטטוס</span>
       </h1>
-      <p class="hero-description" style="margin: 0 auto 30px; font-size: 1.1rem; max-width: 600px;">
+      <p class="hero-description" style="margin: 0 auto 20px; font-size: 1.1rem; max-width: 600px;">
         כאן תוכלו להתעדכן בשלב הנוכחי שלכם בתהליך הגיוס לאוגדה 99. הזינו את מספר תעודת הזהות לבדיקה מהירה.
       </p>
     </div>
   </section>
 
-  <!-- ===== UPGRADE MESSAGE ===== -->
-  <section class="section" style="padding-top: 0;">
-    <div class="upgrade-wrapper">
-      <div class="upgrade-box">
-        <div class="upgrade-icon">
-          <i class="fas fa-wrench"></i>
-        </div>
-        <h2 class="upgrade-title">המערכת בשדרוג <span>זמני</span></h2>
-        <p class="upgrade-desc">
-          אזור האישי ומעקב הסטטוס אינם זמינים כרגע.<br>
-          אנו עובדים על שדרוג המערכת ונחזור בקרוב עם חוויה משופרת.<br><br>
-          לשאלות דחופות, אנא פנו ישירות לרכזת הגיוס.
-        </p>
-        <div class="upgrade-badge">
-          <i class="fas fa-clock"></i> בשדרוג — נחזור בקרוב
-        </div>
-        <br>
-        <a href="index.html" class="upgrade-back-btn">
-          <i class="fas fa-arrow-right"></i> חזרה לעמוד הראשי
-        </a>
-      </div>
-    </div>
-  </section>
-  <!-- ===== END UPGRADE MESSAGE ===== -->
-
-
-  <!--
-  ============================================================
-  ORIGINAL CONTENT — DISABLED DURING UPGRADE
-  Uncomment the sections below to restore full functionality.
-  ============================================================
-
-  === CANDIDATE STATUS LOOKUP FORM ===
-
-  <section class="section" style="padding-top: 0;">
+  <!-- CANDIDATE STATUS LOOKUP FORM -->
+  <section class="section" style="padding-top: 0; padding-bottom: 80px;">
     <div class="container" style="max-width: 750px;">
       
       <div class="checker-box" id="personal-lookup-box">
@@ -175,7 +80,7 @@
         
         <form id="status-lookup-form" class="checker-form" onsubmit="event.preventDefault();">
           <div class="form-group">
-            <label for="candidate-id" class="form-label">מספר תעודת זהות (9 ספרות כולל ספרת ביקורת):</label>
+            <label for="candidate-id" class="form-label">מספר תעודת זהות (9 ספרות):</label>
             <input type="text" id="candidate-id" class="form-input-number" maxLength="9" placeholder="הקלד תעודת זהות..." required autocomplete="off">
             <span class="error-message" id="id-validation-error" style="color: var(--color-red); font-size: 0.9rem; margin-top: 4px; display: none;">תעודת הזהות חייבת להכיל 9 ספרות בדיוק.</span>
           </div>
@@ -186,24 +91,30 @@
         
         <div id="lookup-loading" class="status-loading-wrapper" style="display: none; text-align: center; margin-top: 30px;">
           <div class="spinner"></div>
-          <p class="text-muted" style="margin-top: 12px;">מושך נתונים ממאגר הגיוס האוגדתי...</p>
+          <p class="text-muted" style="margin-top: 12px;">טוען נתונים...</p>
         </div>
         
         <div id="lookup-result" class="personal-result-container" style="display: none; margin-top: 40px; border-top: 1px solid rgba(68, 91, 68, 0.25); padding-top: 30px;">
           
-          <div class="result-status-card" style="text-align: center; margin-bottom: 30px;">
-            <div class="text-muted" style="font-size: 1rem; margin-bottom: 8px;">הסטטוס הנוכחי שלך:</div>
+          <div class="result-status-card" style="text-align: center; margin-bottom: 25px;">
+            <div class="text-muted" style="font-size: 1rem; margin-bottom: 8px;">הסטטוס שלך במערכת:</div>
             <div id="candidate-status-badge" class="status-pill status-pending">
-              נרשם ראשונית
+              הרשמה בוצעה בהצלחה
             </div>
           </div>
           
-          <div id="candidate-personal-status-wrapper" style="display: none; text-align: center; margin-bottom: 35px; background: rgba(197, 155, 39, 0.05); border: 1px dashed rgba(197, 155, 39, 0.25); padding: 18px; border-radius: var(--border-radius-sm); max-width: 550px; margin-left: auto; margin-right: auto;">
-            <div class="text-muted" style="font-size: 0.95rem; margin-bottom: 6px;">הודעה אישית עבורך:</div>
-            <div id="candidate-personal-status" style="font-size: 1.15rem; font-weight: 500; color: var(--color-gold); line-height: 1.6;"></div>
+          <div id="candidate-personal-status-wrapper" style="display: block; text-align: center; margin-bottom: 35px; background: rgba(197, 155, 39, 0.07); border: 1px dashed rgba(197, 155, 39, 0.35); padding: 22px; border-radius: var(--border-radius-sm); max-width: 600px; margin-left: auto; margin-right: auto;">
+            <div class="text-muted" style="font-size: 0.95rem; margin-bottom: 8px; font-weight: 600;">הודעה עבורך:</div>
+            <div id="candidate-personal-status" style="font-size: 1.15rem; font-weight: 500; color: var(--color-gold); line-height: 1.65;"></div>
+            
+            <div id="candidate-action-cta" style="margin-top: 16px; display: none;">
+              <a href="https://docs.google.com/forms/d/1YCV9Hp1XuppwhIbYarB6UV4nIiXpUxnxAxlByIyOrrk/viewform" target="_blank" class="result-cta" style="margin-top: 5px;">
+                <span>להרשמה מהירה לשלב ב'</span> <i class="fas fa-arrow-left" style="margin-right: 6px;"></i>
+              </a>
+            </div>
           </div>
           
-          <div class="timeline-status-wrapper">
+          <div class="timeline-status-wrapper" id="timeline-status-wrapper">
             <div class="text-muted" style="font-size: 1rem; margin-bottom: 20px; text-align: center;">מיקום בציר תהליך הגיוס:</div>
             
             <div class="status-steps" id="recruitment-steps-list">
@@ -261,121 +172,34 @@
         </div>
         
         <div id="lookup-error" class="checker-result not-eligible" style="display: none; margin-top: 30px;">
-          <div class="result-title"><i class="fas fa-circle-xmark" style="color: var(--color-red); margin-left: 8px;"></i> תעודת זהות לא נמצאה</div>
-          <p class="result-desc" id="lookup-error-msg">מספר תעודת הזהות שהזנת אינו מופיע במאגר המועמדים לגיוס של אוגדה 99. אנא ודא/י שהקלדת נכון או פנה/י לרכזת הגיוס לקבלת עזרה.</p>
+          <div class="result-title"><i class="fas fa-circle-xmark" style="color: var(--color-red); margin-left: 8px;"></i> שגיאה בבדיקה</div>
+          <p class="result-desc" id="lookup-error-msg"></p>
         </div>
       </div>
       
     </div>
   </section>
 
-
-  === ADMIN PANEL SECTION ===
-
-  <section class="section" id="admin-section" style="display: none; background-color: var(--bg-secondary); border-top: 1px solid rgba(68, 91, 68, 0.25);">
-    <div class="container">
-      <div class="section-title-wrapper" style="margin-bottom: 40px;">
-        <span class="section-subtitle">ממשק ניהול גיוס</span>
-        <h2 class="section-title">ניהול <span>מועמדי אוגדה 99</span></h2>
-        <div class="section-title-line"></div>
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <img src="logo.png" alt="לוגו אוגדה 99" class="footer-logo">
+      <ul class="footer-links">
+        <li><a href="index.html#about" class="footer-link">על האוגדה</a></li>
+        <li><a href="index.html#eligibility" class="footer-link">תנאי קבלה</a></li>
+        <li><a href="index.html#checker" class="footer-link">בדיקת התאמה</a></li>
+        <li><a href="https://www.alog99.com/" target="_blank" class="footer-link">אתר האלו"ג</a></li>
+      </ul>
+      <div class="footer-text">
+        דף גיוס רשמי - אוגדה 99 (עוצבת הבזק) &copy; 2026. כל הזכויות שמורות לצה"ל.
       </div>
-      
-      <div class="checker-box" id="admin-login-box" style="max-width: 500px; margin: 0 auto;">
-        <h3 class="checker-title" style="text-align: center; margin-bottom: 20px;"><i class="fas fa-lock" style="color: var(--color-gold); margin-left: 8px;"></i> התחברות מנהל מערכת</h3>
-        <form id="admin-login-form" class="checker-form" onsubmit="event.preventDefault();">
-          <div class="form-group">
-            <label for="admin-password" class="form-label">סיסמת מנהל:</label>
-            <input type="password" id="admin-password" class="form-input-number" placeholder="הזן סיסמת גישה..." required>
-          </div>
-          <button type="submit" class="checker-btn" style="background: linear-gradient(135deg, var(--color-red), #801212);">התחבר לממשק</button>
-        </form>
-        <p id="admin-login-error" style="color: var(--color-red); text-align: center; margin-top: 15px; display: none; font-weight: 500;"></p>
+      <div class="footer-copyright">
+        נבנה בגאווה לתמיכה במאמץ הגיוס והתרומה למדינה.
       </div>
-      
-      <div id="admin-dashboard-panel" style="display: none;">
-        <div class="admin-grid" style="display: grid; grid-template-columns: 1fr 2fr; gap: 32px; align-items: start; margin-bottom: 40px;">
-          
-          <div class="checker-box" style="background-color: var(--bg-primary);">
-            <h3 class="checker-title" id="form-action-title" style="font-size: 1.3rem; margin-bottom: 20px;"><i class="fas fa-user-plus" style="color: var(--color-gold); margin-left: 6px;"></i> הוספת מועמד חדש</h3>
-            
-            <form id="candidate-update-form" class="checker-form" onsubmit="event.preventDefault();">
-              <div class="form-group">
-                <label for="edit-id" class="form-label">תעודת זהות (9 ספרות):</label>
-                <input type="text" id="edit-id" class="form-input-number" maxLength="9" placeholder="הקלד ת.ז..." required>
-              </div>
-              <div class="form-group">
-                <label for="edit-name" class="form-label">שם מלא:</label>
-                <input type="text" id="edit-name" class="form-input-number" placeholder="הקלד שם מועמד..." required style="font-family: var(--font-primary);">
-              </div>
-              <div class="form-group">
-                <label for="edit-status" class="form-label">סטטוס גיוס:</label>
-                <select id="edit-status" class="form-input-number" style="font-family: var(--font-primary); background-image: none; cursor: pointer;">
-                  <option value="נרשם ראשונית">נרשם ראשונית</option>
-                  <option value="בתהליך סינון">בתהליך סינון</option>
-                  <option value="ממתין לצו ראשון">ממתין לצו ראשון</option>
-                  <option value="נקבעה טירונות">נקבעה טירונות</option>
-                  <option value="בטירונות פעילה">בטירונות פעילה</option>
-                  <option value="בקורס/הכשרה מקצועית">בקורס/הכשרה מקצועית</option>
-                  <option value="שובץ במילואים פעילים">שובץ במילואים פעילים</option>
-                  <option value="לא נמצא מתאים">לא נמצא מתאים</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="edit-step" class="form-label">שלב בציר הזמן (1-7):</label>
-                <select id="edit-step" class="form-input-number" style="font-family: var(--font-primary); cursor: pointer;">
-                  <option value="1">שלב 01: הרשמה לשלב ב'</option>
-                  <option value="2">שלב 02: סינון ראשוני</option>
-                  <option value="3">שלב 03: צו ראשון למתאימים</option>
-                  <option value="4">שלב 04: הזמנה לטירונות</option>
-                  <option value="5">שלב 05: טירונות שבועיים</option>
-                  <option value="6">שלב 06: קורס והכשרת מקצוע</option>
-                  <option value="7">שלב 07: שירות מילואים פעיל</option>
-                </select>
-              </div>
-              <div class="form-group">
-                <label for="edit-comments" class="form-label">הערות פנימיות (מנהל בלבד - לא מוצג למועמד):</label>
-                <textarea id="edit-comments" class="form-input-number" placeholder="הקלד הערות..." style="font-family: var(--font-primary); resize: vertical; min-height: 60px;"></textarea>
-              </div>
-              <div class="form-group">
-                <label for="edit-phone" class="form-label">מספר טלפון:</label>
-                <input type="text" id="edit-phone" class="form-input-number" placeholder="הקלד מספר טלפון..." style="font-family: var(--font-primary);">
-              </div>
-              <div class="form-group">
-                <label for="edit-personal-status" class="form-label">סטטוס אישי (מוצג למועמד באזור האישי):</label>
-                <input type="text" id="edit-personal-status" class="form-input-number" placeholder="הקלד הערה/עדכון מותאם אישית..." style="font-family: var(--font-primary);">
-              </div>
-              <div style="display: flex; gap: 12px; margin-top: 10px;">
-                <button type="submit" class="checker-btn" id="save-candidate-btn" style="flex: 2; background: linear-gradient(135deg, var(--color-gold), #a17c18); color: var(--text-dark); padding: 12px;">שמור מועמד</button>
-                <button type="button" class="checker-btn" id="cancel-edit-btn" style="flex: 1; background-color: var(--color-green-medium); border: 1px solid var(--color-green-light); padding: 12px; display: none;">ביטול</button>
-              </div>
-            </form>
-            <p id="edit-submit-msg" style="text-align: center; margin-top: 12px; font-weight: 500;"></p>
-          </div>
-          
-          <div class="checker-box" style="background-color: var(--bg-primary); overflow-x: auto;">
-            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
-              <h3 class="checker-title" style="font-size: 1.3rem; margin-bottom: 0;"><i class="fas fa-users" style="color: var(--color-gold); margin-left: 6px;"></i> רשימת מועמדים</h3>
-              <button id="refresh-roster-btn" class="btn btn-secondary" style="font-size: 0.9rem; padding: 8px 16px;">
-                <span>רענן רשימה</span> <i class="fas fa-sync-alt"></i>
-              </button>
-            </div>
-            <div id="roster-loading" style="text-align: center; padding: 40px 0;">
-              <div class="spinner" style="margin: 0 auto;"></div>
-              <p class="text-muted" style="margin-top: 12px;">טוען את רשימת המועמדים...</p>
-            </div>
-            <div id="roster-table-wrapper" style="display: none;">
-              <table class="admin-table" style="width: 100%; border-collapse: collapse; text-align: right; color: var(--text-primary); font-size: 0.95rem;">
-                <thead>
-                  <tr style="border-bottom: 2px solid var(--color-green-medium); color: var(--color-gold);">
-                    <th style="padding: 12px 8px;">שם מלא</th>
-                    <th style="padding: 12px 8px;">תעודת זהות</th>
-                    <th style="padding: 12px 8px;">טלפון</th>
-                    <th style="padding: 12px 8px;">סטטוס גיוס</th>
-                    <th style="padding: 12px 8px; text-align: center;">שלב</th>
-                    <th style="padding: 12px 8px;">סטטוס אישי</th>
-                    <th style="padding: 12px 8px;">פעולות</th>
-                  </tr>
-                </thead>
-                <tbody id="roster-table-body"></tbody>
-              </table>
-              <div id="roster-empty-msg" style="text-align: center; pa
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app-personal.js"></script>
+</body>
+</html>
