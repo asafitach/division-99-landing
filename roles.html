@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>פירוט תפקידים ומקצועות | אוגדה 99 - עוצבת הבזק</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description"
+    content="הכירו את התפקידים המובילים באוגדה 99: מכונאות ורכב כבד, טכנאי אופטיקה וחימוש מתקדם, לוגיסטיקה, ארגון ומנהלה, ותפעול שינוע והרמה. שירות משמעותי במודל שבוע-שבוע.">
+  <meta name="keywords"
+    content="אוגדה 99, תפקידים באוגדה 99, מכונאות, רכב כבד, אופטיקה, בקרת אש, חימוש, לוגיסטיקה, שינוע, מנופים, מילואים שלב ב, עוצבת הבזק">
+  <meta name="author" content="אוגדה 99 - צה״ל">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="פירוט תפקידים ומקצועות | אוגדה 99">
+  <meta property="og:description"
+    content="מערך התפקידים והמקצועות במערך הלוגיסטי והטכנולוגי של אוגדה 99 (עוצבת הבזק).">
+  <meta property="og:image" content="logo.png">
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="style.css?v=roles3">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+</head>
+
+<body>
+
+  <!-- Floating WhatsApp Widget -->
+  <a href="https://chat.whatsapp.com/LMHQzzmi4phFQtlLQSLyyt" class="whatsapp-float" target="_blank"
+    title="הצטרפו לקבוצת הוואצאפ" id="whatsapp-floating-btn">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- Header & Navigation -->
+  <header id="header" class="scrolled">
+    <div class="container nav-container">
+      <div class="logo-wrapper">
+        <a href="index.html" style="display: flex; align-items: center; gap: 16px;">
+          <img src="logo.png" alt="לוגו אוגדה 99" class="logo-img" style="height: 45px;">
+          <div class="logo-text">
+            <span class="logo-title">אוגדה 99</span>
+            <span class="logo-subtitle">עוצבת הבזק</span>
+          </div>
+        </a>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-label="תפריט ניווט">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <ul class="nav-menu" id="nav-menu">
+        <li><a href="index.html#about" class="nav-link">על האוגדה</a></li>
+        <li><a href="index.html#eligibility" class="nav-link">למי זה מתאים?</a></li>
+        <li><a href="roles.html" class="nav-link active">פירוט תפקידים</a></li>
+        <li><a href="index.html#checker" class="nav-link">בדיקת התאמה</a></li>
+        <li><a href="index.html#timeline" class="nav-link">שלבי המסלול</a></li>
+        <li><a href="personal.html" class="nav-link">אזור אישי</a></li>
+        <li><a href="https://docs.google.com/forms/d/1YCV9Hp1XuppwhIbYarB6UV4nIiXpUxnxAxlByIyOrrk/viewform"
+            target="_blank" class="nav-cta" id="nav-cta-btn">הרשמה מהירה <i class="fas fa-arrow-left"
+              style="margin-right: 8px;"></i></a></li>
+      </ul>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero personal-hero" style="min-height: auto; padding: 140px 0 45px;">
+    <div class="container" style="max-width: 900px; text-align: center; position: relative; z-index: 10;">
+      <div class="badge" style="margin-bottom: 16px;">
+        <span class="badge-dot"></span>
+        <span>מערך התפקידים והמקצועות</span>
+      </div>
+      <h1 class="hero-title" style="font-size: 2.8rem; margin-bottom: 16px;">
+        פירוט התפקידים <span>באוגדה 99</span>
+      </h1>
+      <p class="hero-description" style="margin: 0 auto 24px; font-size: 1.15rem; max-width: 700px; line-height: 1.7;">
+        באוגדה 99 אנו מציעים מגוון מקצועות טכנולוגיים, לוגיסטיים ומבצעיים בחוד העשייה של צה"ל. 
+        ההכשרה הצבאית מקיפה ומאפשרת לכם לרכוש ידע מעשי, לתרום תרומה מכרעת לביטחון המדינה ולשרת בתנאי שירות מעולים של שבוע-שבוע ביחידה קדמית.
+      </p>
+
+      <!-- Category Filter Tabs -->
+      <div class="roles-filter-nav">
+        <button class="role-filter-btn active" data-filter="all">כל התפקידים</button>
+        <button class="role-filter-btn" data-filter="mechanics">מכונאות ורכב כבד</button>
+        <button class="role-filter-btn" data-filter="optics">טכנאי אופטיקה וחימוש</button>
+        <button class="role-filter-btn" data-filter="logistics">לוגיסטיקה ומנהלה</button>
+        <button class="role-filter-btn" data-filter="transport">תפעול, שינוע והרמה</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Roles List Section -->
+  <section class="section" style="padding-top: 5px; padding-bottom: 90px;">
+    <div class="container roles-container">
+
+      <div class="roles-grid" id="roles-grid">
+
+        <!-- 1. Mechanics & Heavy Vehicles -->
+        <article class="role-card" id="role-mechanics" data-category="mechanics">
+          <div class="role-card-media">
+            <div class="role-card-img-wrap">
+              <img src="images/mechanics.jpg" alt="מכונאות ורכב כבד" class="role-card-img" loading="lazy">
+              <div class="role-card-media-overlay"></div>
+            </div>
+          </div>
+
+          <div class="role-card-content">
+            <div>
+              <div class="role-header">
+                <span class="role-category-tag">מערך הטנ״א והאחזקה</span>
+                <h2 class="role-title">מכונאות ורכב כבד</h2>
+              </div>
+
+              <!-- Responsibilities -->
+              <div class="role-section-block">
+                <h3 class="role-block-title">תחומי אחריות:</h3>
+                <p class="role-text-body">
+                  אבחון, טיפול ותיקון תקלות במנועים, מערכות הידראוליות וחשמל של משאיות, ציוד צמ"ה ורכב קרבי משוריין (טנקים, נגמ"שים). כולל עבודות מסגרות וריתוך.
+                </p>
+              </div>
+
+              <!-- Key Skills -->
+              <div class="role-section-block">
+                <h3 class="role-block-title">כישורים בולטים:</h3>
+                <div class="role-skills-tags">
+                  <span class="role-skill-pill">חוש טכני מפותח</span>
+                  <span class="role-skill-pill">כושר פיזי</span>
+                  <span class="role-skill-pill">נכונות לעבודה מאומצת ("ללכלך את הידיים")</span>
+                  <span class="role-skill-pill">יכולת אלתור בתנאי שטח</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card-footer">
+              <div class="role-highlight-note">
+                כולל קורסי הכשרה מקצועיים והסמכה צבאית
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 2. Optics & Advanced Armament -->
+        <article class="role-card" id="role-optics" data-category="optics">
+          <div class="role-card-media">
+            <div class="role-card-img-wrap">
+              <img src="images/optics_sensor.jpg" alt="מערכות אופטיקה וחימוש" class="role-card-img" id="optics-main-img" loading="lazy">
+              <div class="role-card-media-overlay"></div>
+            </div>
+            <!-- Thumbnails Gallery for Optics / Armament -->
+            <div class="role-thumb-gallery">
+              <button class="role-thumb-btn active" data-src="images/optics_sensor.jpg" title="אופטיקה ותצפית">
+                <img src="images/optics_sensor.jpg" alt="אופטיקה">
+              </button>
+              <button class="role-thumb-btn" data-src="images/armament_rcws.jpg" title="עמדות נשק ובקרת אש">
+                <img src="images/armament_rcws.jpg" alt="חימוש">
+              </button>
+            </div>
+          </div>
+
+          <div class="role-card-content">
+            <div>
+              <div class="role-header">
+                <span class="role-category-tag">מערך החימוש והאלקטרוניקה</span>
+                <h2 class="role-title">טכנאי אופטיקה וחימוש מתקדם</h2>
+              </div>
+
+              <!-- Responsibilities -->
+              <div class="role-section-block">
+                <h3 class="role-block-title">תחומי אחריות:</h3>
+                <p class="role-text-body">
+                  פירוק, הרכבה, תיקון ושדרוג של אמצעי ראיית לילה, כוונות חכמות, מערכות בקרת אש, נשק קל וכבד ותחמושת.
+                </p>
+              </div>
+
+              <!-- Key Skills -->
+              <div class="role-section-block">
+                <h3 class="role-block-title">כישורים בולטים:</h3>
+                <div class="role-skills-tags">
+                  <span class="role-skill-pill">סבלנות גבוהה</span>
+                  <span class="role-skill-pill">דיוק מרבי</span>
+                  <span class="role-skill-pill">מוטוריקה עדינה</span>
+                  <span class="role-skill-pill">יכולת קריאה והבנה של שרטוטים טכניים ומעגלים אלקטרוניים</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card-footer">
+              <div class="role-highlight-note">
+                עבודה עם מערכות טכנולוגיות מתקדמות
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 3. Logistics, Organization & Admin -->
+        <article class="role-card" id="role-logistics" data-category="logistics">
+          <div class="role-card-media">
+            <div class="role-card-img-wrap">
+              <img src="images/logistics.jpg" alt="לוגיסטיקה, ארגון ומנהלה" class="role-card-img" loading="lazy">
+              <div class="role-card-media-overlay"></div>
+            </div>
+          </div>
+
+          <div class="role-card-content">
+            <div>
+              <div class="role-header">
+                <span class="role-category-tag">מערך האספקה והשליטה</span>
+                <h2 class="role-title">לוגיסטיקה, ארגון ומנהלה</h2>
+              </div>
+
+              <!-- Responsibilities -->
+              <div class="role-section-block">
+                <h3 class="role-block-title">תחומי אחריות:</h3>
+                <p class="role-text-body">
+                  ניהול שרשרת האספקה, הזמנה ומעקב אחר מלאי (חלפים, דלק, תחמושת), ניהול תוכניות עבודה (תפ"ח) מול דרגי השטח, ומתן מענה מנהלתי שוטף.
+                </p>
+              </div>
+
+              <!-- Key Skills -->
+              <div class="role-section-block">
+                <h3 class="role-block-title">כישורים בולטים:</h3>
+                <div class="role-skills-tags">
+                  <span class="role-skill-pill">סדר וארגון יוצאי דופן</span>
+                  <span class="role-skill-pill">שליטה במערכות מידע ממוחשבות (כמו ERP)</span>
+                  <span class="role-skill-pill">יכולת ניהול ותעדוף של מספר משימות במקביל</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card-footer">
+              <div class="role-highlight-note">
+                ניהול ותיאום רציף מול דרגי השטח
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 4. Operations, Transport & Lifting -->
+        <article class="role-card" id="role-transport" data-category="transport">
+          <div class="role-card-media">
+            <div class="role-card-img-wrap">
+              <img src="images/transport.jpg" alt="תפעול, שינוע והרמה" class="role-card-img" loading="lazy">
+              <div class="role-card-media-overlay"></div>
+            </div>
+          </div>
+
+          <div class="role-card-content">
+            <div>
+              <div class="role-header">
+                <span class="role-category-tag">מערך ההובלה והחילוץ</span>
+                <h2 class="role-title">תפעול, שינוע והרמה</h2>
+              </div>
+
+              <!-- Responsibilities -->
+              <div class="role-section-block">
+                <h3 class="role-block-title">תחומי אחריות:</h3>
+                <p class="role-text-body">
+                  נהיגה על כלים כבדים, חילוץ כלי רכב שנתקעו או נפגעו באמצעות משאיות גרירה (מנופים/כננות), והעמסה או פריקה של ציוד כבד, מכולות ותחמושת.
+                </p>
+              </div>
+
+              <!-- Key Skills -->
+              <div class="role-section-block">
+                <h3 class="role-block-title">כישורים בולטים:</h3>
+                <div class="role-skills-tags">
+                  <span class="role-skill-pill">אחריות בטיחותית מחמירה</span>
+                  <span class="role-skill-pill">קור רוח במצבי חירום</span>
+                  <span class="role-skill-pill">קואורדינציה</span>
+                  <span class="role-skill-pill">רישיונות נהיגה תואמים (לרוב למשא כבד)</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="role-card-footer">
+              <div class="role-highlight-note">
+                תפעול כלים כבדים וציוד ייעודי
+              </div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Service Conditions Highlight Banner -->
+      <div class="roles-service-banner">
+        <div class="service-feature-item">
+          <div class="service-feature-icon">
+            <i class="fas fa-calendar-week"></i>
+          </div>
+          <div class="service-feature-text">
+            <h4>מודל שבוע-שבוע</h4>
+            <p>שבוע פעילות ביחידה קדמית ושבוע מלא בבית, עם תגמול מילואים מלא גם על ימי הבית.</p>
+          </div>
+        </div>
+
+        <div class="service-feature-item">
+          <div class="service-feature-icon">
+            <i class="fas fa-medal"></i>
+          </div>
+          <div class="service-feature-text">
+            <h4>הטבות ומענקי לוחם</h4>
+            <p>כחלק מיחידה קדמית לוחמת, משרתי האוגדה זכאים לתנאים, מענקים והוקרה של תומכי לחימה בחזית.</p>
+          </div>
+        </div>
+
+        <div class="service-feature-item">
+          <div class="service-feature-icon">
+            <i class="fas fa-graduation-cap"></i>
+          </div>
+          <div class="service-feature-text">
+            <h4>הכשרה מקצועית מלאה</h4>
+            <p>אין צורך בניסיון צבאי קודם — צה"ל מעביר קורסים והכשרות מקצועיות ייעודיות לכל תפקיד.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Final CTA Section (Identical to main page) -->
+  <section class="cta-section" id="register">
+    <div class="container">
+      <div class="cta-box">
+        <h2>מוכנים לעשות שינוי אמיתי?</h2>
+        <p>מלאו את טופס הרישום או הצטרפו לקבוצת הוואצאפ לעדכונים, מענה על שאלות וקשר ישיר עם רכזי הגיוס.</p>
+        <div class="cta-buttons">
+          <a href="https://docs.google.com/forms/d/1YCV9Hp1XuppwhIbYarB6UV4nIiXpUxnxAxlByIyOrrk/viewform"
+            target="_blank" class="btn btn-primary" style="font-size: 1.2rem; padding: 18px 45px;"
+            id="final-submit-btn">
+            להרשמה בטופס גוגל <i class="fas fa-file-signature"></i>
+          </a>
+          <a href="https://chat.whatsapp.com/LMHQzzmi4phFQtlLQSLyyt" target="_blank" class="btn btn-secondary"
+            style="font-size: 1.2rem; padding: 18px 45px; background-color: #25d366; border-color: #128c7e;"
+            id="final-whatsapp-btn">
+            לקבוצת הוואצאפ לעדכונים <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-content">
+      <img src="logo.png" alt="לוגו אוגדה 99" class="footer-logo">
+      <ul class="footer-links">
+        <li><a href="index.html#about" class="footer-link">על האוגדה</a></li>
+        <li><a href="index.html#eligibility" class="footer-link">תנאי קבלה</a></li>
+        <li><a href="roles.html" class="footer-link">פירוט תפקידים</a></li>
+        <li><a href="index.html#checker" class="footer-link">בדיקת התאמה</a></li>
+        <li><a href="personal.html" class="footer-link">אזור אישי</a></li>
+        <li><a href="https://www.alog99.com/" target="_blank" class="footer-link">אתר האלו"ג</a></li>
+      </ul>
+      <div class="footer-text">
+        דף גיוס רשמי - אוגדה 99 (עוצבת הבזק) &copy; 2026. כל הזכויות שמורות לצה"ל.
+      </div>
+      <div class="footer-copyright">
+        נבנה בגאווה לתמיכה במאמץ הגיוס והתרומה למדינה ע"י אסף איטח.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="app-roles.js"></script>
+</body>
+
+</html>
