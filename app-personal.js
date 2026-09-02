@@ -168,9 +168,11 @@ document.addEventListener('DOMContentLoaded', () => {
       e.preventDefault();
 
       const rawId = candidateIdInput.value.trim().replace(/\D/g, '');
+      // Strip leading zeros before comparing with the database (e.g., 020106864 -> 20106864)
+      const cleanId = rawId.replace(/^0+/, '');
 
-      // Validation
-      if (rawId.length !== 9) {
+      // Validation: Must be non-empty, up to 9 digits, and have at least 5 digits
+      if (!cleanId || rawId.length > 9 || cleanId.length < 5) {
         idValidationError.style.display = 'block';
         return;
       }
@@ -191,23 +193,24 @@ document.addEventListener('DOMContentLoaded', () => {
           lookupLoading.style.display = 'none';
           lookupSubmitBtn.disabled = false;
           
-          findAndRenderStatus(rawId, data);
+          findAndRenderStatus(cleanId, data);
         }, 200);
 
       } catch (err) {
         lookupLoading.style.display = 'none';
         lookupSubmitBtn.disabled = false;
-        findAndRenderStatus(rawId, {});
+        findAndRenderStatus(cleanId, {});
       }
     });
   }
 
   /**
    * Search for ID across all nodes in personalStatusData.json.
+   * Compares IDs after removing leading zeros so both 020106864 and 20106864 match properly.
    * If not found, use status 'Q'.
    */
   function findAndRenderStatus(candidateId, data) {
-    const paddedId = candidateId.padStart(9, '0');
+    const cleanCandidateId = String(candidateId).replace(/\D/g, '').replace(/^0+/, '');
     let matchedStatusCode = 'Q'; // Default if not found
 
     if (data && typeof data === 'object') {
@@ -215,8 +218,8 @@ document.addEventListener('DOMContentLoaded', () => {
         const upperKey = key.trim().toUpperCase();
         if (Array.isArray(node)) {
           const isFound = node.some(item => {
-            const strItem = String(item).replace(/\D/g, '').trim();
-            return strItem === candidateId || strItem === paddedId;
+            const strItem = String(item).replace(/\D/g, '').replace(/^0+/, '');
+            return strItem === cleanCandidateId;
           });
           if (isFound) {
             matchedStatusCode = upperKey;
@@ -224,13 +227,17 @@ document.addEventListener('DOMContentLoaded', () => {
           }
         } else if (node && typeof node === 'object') {
           // Object key check
-          if (node[candidateId] !== undefined || node[paddedId] !== undefined) {
-            matchedStatusCode = upperKey;
-            break;
+          for (const itemKey of Object.keys(node)) {
+            const strKey = String(itemKey).replace(/\D/g, '').replace(/^0+/, '');
+            if (strKey === cleanCandidateId) {
+              matchedStatusCode = upperKey;
+              break;
+            }
           }
+          if (matchedStatusCode !== 'Q') break;
         } else if (typeof node === 'string' || typeof node === 'number') {
-          const strItem = String(node).replace(/\D/g, '').trim();
-          if (strItem === candidateId || strItem === paddedId) {
+          const strItem = String(node).replace(/\D/g, '').replace(/^0+/, '');
+          if (strItem === cleanCandidateId) {
             matchedStatusCode = upperKey;
             break;
           }
