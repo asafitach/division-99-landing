@@ -167,6 +167,10 @@ document.addEventListener('DOMContentLoaded', () => {
     lookupForm.addEventListener('submit', async (e) => {
       e.preventDefault();
 
+      if (candidateIdInput && candidateIdInput.disabled) {
+        return;
+      }
+
       const rawId = candidateIdInput.value.trim().replace(/\D/g, '');
       // Strip leading zeros before comparing with the database (e.g., 020106864 -> 20106864)
       const cleanId = rawId.replace(/^0+/, '');
