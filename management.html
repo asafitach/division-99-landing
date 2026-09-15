@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>אזור ניהול - אוגדה 99</title>
+
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="management.css">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Logo Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+</head>
+
+<body>
+
+  <!-- Password Protection Screen -->
+  <div class="management-auth-overlay" id="auth-overlay">
+    <div class="management-auth-container">
+      <div class="auth-header">
+        <img src="logo.png" alt="לוגו אוגדה 99" class="auth-logo">
+        <h1>אזור ניהול מוגן</h1>
+        <p>אנא הכנס את הסיסמה לגישה לאזור הניהול</p>
+      </div>
+
+      <form class="auth-form" id="auth-form" onsubmit="event.preventDefault();">
+        <div class="form-group">
+          <label for="password-input" class="form-label">סיסמה</label>
+          <input type="password" id="password-input" class="form-input" placeholder="הכנס סיסמה..." required>
+          <div class="password-error" id="password-error"></div>
+        </div>
+        <button type="submit" class="btn btn-primary auth-submit">כניסה</button>
+      </form>
+
+      <div class="auth-footer">
+        <a href="index.html" class="back-link">חזור לעמוד הבית</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Management Area (Hidden until authenticated) -->
+  <div class="management-main" id="management-main" style="display: none;">
+    <!-- Header & Navigation -->
+    <header id="management-header">
+      <div class="container nav-container">
+        <div class="logo-wrapper">
+          <img src="logo.png" alt="לוגו אוגדה 99" class="logo-img">
+          <div class="logo-text">
+            <span class="logo-title">אוגדה 99</span>
+            <span class="logo-subtitle">אזור ניהול</span>
+          </div>
+        </div>
+
+        <div class="management-actions">
+          <span class="user-badge">מנהל <i class="fas fa-lock"></i></span>
+          <button class="btn btn-secondary logout-btn" id="logout-btn">התנתקות</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Management Content -->
+    <main class="management-content">
+      <div class="container">
+        <!-- Page Title -->
+        <div class="management-header-section">
+          <h1>ניהול שקופיות</h1>
+          <p>צפה בכל השקופיות שלך, עריכה מהירה ושיתוף</p>
+        </div>
+
+        <!-- Search & Filter -->
+        <div class="management-toolbar">
+          <div class="toolbar-search">
+            <input type="text" id="slides-search" class="search-input" placeholder="חיפוש בשקופיות...">
+          </div>
+          <div class="toolbar-filters">
+            <select id="status-filter" class="filter-select">
+              <option value="">כל המצבים</option>
+              <option value="active">פעיל</option>
+              <option value="draft">טיוטה</option>
+            </select>
+          </div>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="stats-grid">
+          <div class="stat-card">
+            <div class="stat-number" id="total-slides">0</div>
+            <div class="stat-label">סך הכל שקופיות</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="active-slides">0</div>
+            <div class="stat-label">שקופיות פעילות</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number" id="last-updated">-</div>
+            <div class="stat-label">עדכון אחרון</div>
+          </div>
+        </div>
+
+        <!-- Slides Grid -->
+        <div class="slides-section">
+          <h2>רשימת השקופיות</h2>
+          <div class="slides-grid" id="slides-grid">
+            <!-- Slides will be loaded here from data -->
+          </div>
+          <div class="empty-state" id="empty-state" style="display: none;">
+            <i class="fas fa-inbox"></i>
+            <h3>אין שקופיות עדיין</h3>
+            <p>נתונים על השקופיות יוצגו כאן כשתתווסף שקופית ראשונה</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Notification Toast -->
+  <div class="toast-container" id="toast-container"></div>
+
+  <!-- Scripts -->
+  <script src="management.js"></script>
+</body>
+
+</html>
