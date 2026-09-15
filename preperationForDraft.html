@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מצגת כנס מתגייסים - אוגדה 99</title>
+<link rel="icon" type="image/png" href="logo.png">
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Rubik:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary-color: #d4af37; /* זהב סמכותי */
+    --bg-color: #1a1c19; /* שחור-ירוק זית עמוק */
+    --text-color: #e5e5e5;
+    --slide-bg: #222621; /* רקע שקופית */
+  }
+
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    font-family: 'Heebo', sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    overflow: hidden; /* מונע גלילה - התנהגות מצגת */
+  }
+
+  .presentation-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slide {
+    position: absolute;
+    width: 80%;
+    max-width: 1000px;
+    height: 75vh;
+    background-color: var(--slide-bg);
+    border-radius: 12px;
+    padding: 3rem 4rem;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+    border-top: 5px solid var(--primary-color);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+    transform: translateY(20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .slide.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    z-index: 10;
+  }
+
+  h1, h2 {
+    font-family: 'Rubik', sans-serif;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-size: 3.5rem;
+    text-align: center;
+    line-height: 1.2;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+    border-bottom: 2px solid rgba(212, 175, 55, 0.3);
+    padding-bottom: 10px;
+  }
+
+  ul {
+    list-style-type: none;
+    font-size: 1.6rem;
+    line-height: 1.8;
+  }
+
+  ul li {
+    margin-bottom: 1rem;
+    position: relative;
+    padding-right: 1.5rem;
+  }
+
+  ul li::before {
+    content: "■";
+    color: var(--primary-color);
+    position: absolute;
+    right: 0;
+    font-size: 1.2rem;
+    top: 2px;
+  }
+
+  p {
+    font-size: 1.6rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .subtitle {
+    font-size: 1.8rem;
+    text-align: center;
+    color: #a0a0a0;
+  }
+
+  /* חיצים לדפדוף */
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: transparent;
+    border: none;
+    color: rgba(255,255,255,0.3);
+    font-size: 4rem;
+    cursor: pointer;
+    z-index: 100;
+    transition: color 0.3s;
+  }
+
+  .nav-btn:hover {
+    color: var(--primary-color);
+  }
+
+  .prev-btn { right: 2rem; }
+  .next-btn { left: 2rem; }
+
+  /* מונה שקופיות */
+  .slide-counter {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    font-family: 'Rubik', sans-serif;
+    font-size: 1.2rem;
+    color: #666;
+    z-index: 100;
+  }
+
+  /* פוטר - לוגו וטקסט */
+  .presentation-footer {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    z-index: 100;
+  }
+
+  .presentation-footer img {
+    height: 55px;
+    width: auto;
+    border-radius: 4px;
+  }
+
+  .presentation-footer .footer-text {
+    font-family: 'Rubik', sans-serif;
+    color: #a0a0a0;
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .slide { width: 95%; padding: 2rem; height: 85vh; }
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 2rem; }
+    ul, p { font-size: 1.2rem; }
+    .nav-btn { font-size: 2.5rem; }
+    .presentation-footer { bottom: 10px; right: 15px; gap: 10px; }
+    .presentation-footer img { height: 40px; }
+    .presentation-footer .footer-text { font-size: 1rem; }
+  }
+
+  .back-manage-btn {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: rgba(34, 38, 33, 0.85);
+    border: 1px solid rgba(212, 175, 55, 0.4);
+    color: #d4af37;
+    padding: 8px 16px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-family: 'Heebo', sans-serif;
+    z-index: 200;
+    transition: all 0.3s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .back-manage-btn:hover {
+    background: #d4af37;
+    color: #1a1c19;
+    box-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+  }
+</style>
+</head>
+<body>
+
+<a href="manage.html" class="back-manage-btn" title="חזרה לאזור ניהול">&#10005; חזרה לניהול</a>
+
+<div class="presentation-container">
+
+  <!-- כפתורי ניווט -->
+  <button class="nav-btn prev-btn" onclick="changeSlide(-1)">&#10094;</button>
+  <button class="nav-btn next-btn" onclick="changeSlide(1)">&#10095;</button>
+
+  <!-- מונה שקופיות -->
+  <div class="slide-counter"><span id="current">1</span> / <span id="total">10</span></div>
+
+  <!-- לוגו וטקסט (פוטר) -->
+  <div class="presentation-footer">
+    <img src="logo.png" alt="סמל אוגדה 99">
+    <span class="footer-text">אוגדה 99 - עוצבת הבזק</span>
+  </div>
+
+  <!-- שקופית 1 -->
+  <div class="slide active">
+    <h1>כנס מועמדים לשלב ב'<br>אוגדה 99</h1>
+    <div class="subtitle">היערכות, תיאום ציפיות ומידע לקראת טירונות דצמבר</div>
+  </div>
+
+  <!-- שקופית 2 -->
+  <div class="slide">
+    <h2>היכרות עם אוגדה 99 והצורך המבצעי</h2>
+    <ul>
+      <li>אוגדה 99 היא אוגדת חי"ר-אש מובחרת ומתמרנת.</li>
+      <li>המוקד המרכזי בגיוס הנוכחי הוא <strong>אלו"ג 99 (האגד הלוגיסטי)</strong>.</li>
+      <li>מטרת הגיוס: מענה לפערי כוח אדם וצורך קריטי בעיבוי שורות, במיוחד בתחומי הלוגיסטיקה והטנ"א.</li>
+    </ul>
+  </div>
+
+  <!-- שקופית 3 -->
+  <div class="slide">
+    <h2>מגוון התפקידים באוגדה</h2>
+    <ul>
+      <li><strong>לוגיסטיקה ומטה:</strong> תפקידי חמ"ל, אפסנאות, אחזקה ומטבח.</li>
+      <li><strong>טנ"א (טכנולוגיה ואחזקה):</strong> מכונאי, טכנאי חשמל מרכבה, בוחן כוונות, נשק, בוחן תחמושת ועוד.</li>
+      <li><strong>תחבורה:</strong> נהיגת משא כבד (שילוב בפרויקט "כלים שלובים").</li>
+      <li><strong>משאבי אנוש ורפואה:</strong> גיוס, כוח אדם, חובשים, אחים ורוקחים למרפאה.</li>
+    </ul>
+  </div>
+
+  <!-- שקופית 4 -->
+  <div class="slide">
+    <h2>איך נבחר השיבוץ לתפקיד?</h2>
+    <ul>
+      <li><strong>בסיס הנתונים:</strong> השיבוץ מתחיל מהנתונים שמילאתם בשאלונים.</li>
+      <li><strong>השכלה וניסיון אזרחי:</strong> התאמה מרבית בין המקצוע באזרחות לתפקיד הצבאי.</li>
+      <li><strong>העדפה מול צורך:</strong> שקלול בין התחומים שסימנתם שמעניינים אתכם, לבין הצרכים המבצעיים של אוגדה 99.</li>
+    </ul>
+  </div>
+
+  <!-- שקופית 5 -->
+  <div class="slide">
+    <h2>מסלול הגיוס: מהגשת הבקשה לצו הראשון</h2>
+    <ul>
+      <li><strong>קליטה והגשת בקשה:</strong> ריכוז הנתונים באוגדה, ופתיחת בקשה לאכ"א לאישור חזרה לשירות (ויתור על פטור).</li>
+      <li><strong>פתיחת רשומה:</strong> פתיחת תיק אישי רשמי בלשכת הגיוס מיטב.</li>
+      <li><strong>"הצעד הראשון" במיטב:</strong> הגעה פיזית לצו ראשון הכולל אימות נתונים, ריאיון ובדיקות רפואיות לקביעת פרופיל.</li>
+    </ul>
+    <p><em>* נציג אוגדה (POC) מלווה אתכם כדי למנוע עיכובים או סינוני שיחות.</em></p>
+  </div>
+
+  <!-- שקופית 6 -->
+  <div class="slide">
+    <h2>מסלול הגיוס: לקראת שיבוץ וגיוס</h2>
+    <ul>
+      <li><strong>ועדות ואישורי חריגים:</strong> במידה ויש עבר רפואי מורכב, התיק עובר ועדה ואישור פרטני של עתכ"א.</li>
+      <li><strong>הקצאה ושיבוץ סופי:</strong> קבלת "סטטוס גיוס" תקין, הבטחת המקום במחזור טירונות דצמבר ושיבוץ לתפקיד המיועד.</li>
+      <li><strong>יום הגיוס:</strong> הגעה לבקו"ם, קליטה, עלייה על מדים ויציאה להכשרה.</li>
+    </ul>
+  </div>
+
+  <!-- שקופית 7 -->
+  <div class="slide">
+    <h2>מעמד השירות: סדיר מול מילואים</h2>
+    <ul>
+      <li><strong>הטירונות (שירות סדיר):</strong> מרגע החיול ועד סיום טירונות היסוד אתם מוגדרים חיילים בשירות סדיר.</li>
+      <li><strong>שס"ן (שירות סדיר נוסף):</strong> קיים רק למסלולים מורחבים כמו קורס נהיגה.</li>
+      <li><strong>המעבר למילואים:</strong> מיד עם סיום ההכשרה, אתם משתחררים משירות סדיר והופכים לחיילי מילואים מן המניין באוגדה.</li>
+    </ul>
+  </div>
+
+  <!-- שקופית 8 -->
+  <div class="slide">
+    <h2>שגרת המילואים והתגמול הכלכלי</h2>
+    <ul>
+      <li><strong>ניהול הזמן (בשגרה):</strong> כחיילי מילואים אתם מנהלים עצמאית את המשפחה והעבודה בין הזימונים.</li>
+      <li><strong>אופי השירות במילואים:</strong> לא מדובר ב"יומיות". בעת זימון ומשימה מבצעית - המסגרת קשיחה ומחייבת.</li>
+      <li><strong>מעטפת כלכלית:</strong> בשונה מחייל סדיר, במילואים התגמול מגיע מביטוח לאומי ומחושב על בסיס השכר שלכם באזרחות.</li>
+    </ul>
+  </div>
+
+  <!-- שקופית 9 -->
+  <div class="slide">
+    <h2>פרקטיקה: אתר מתגייסים וצווים</h2>
+    <ul>
+      <li><strong>גישה לאתר מתגייסים:</strong> הגישה לאתר לעיתים חסומה למתגייסי שלב ב'. מי שמצליח להתחבר יכול לעקוב - אך אין להסתמך על כך.</li>
+      <li><strong>מעקב האוגדה:</strong> הצוות שלנו עוקב אחרי התיקים של כולם ויעדכן אישית בכל התפתחות.</li>
+      <li><strong>צווי הגיוס:</strong> החלו להישלח! החל מעכשיו, כל מועמד שגיוסו מאושר סופית, יקבל את הצו הרשמי.</li>
+    </ul>
+  </div>
+
+  <!-- שקופית 10 -->
+  <div class="slide">
+    <h2>כוכבים והיערכות לטירונות דצמבר</h2>
+    <ul>
+      <li><strong>הטבת הכוכבים:</strong> לא מובטחת לכל מתגייסי שלב ב'. מי שכן קיבל מסרון - מעולה, זו אינדיקציה נוספת וסופית לכך שהגיוס אושר.</li>
+      <li><strong>טירונות חורף:</strong> חובה להיערך לקור.</li>
+      <li><strong>ציוד נדרש:</strong> ביגוד תרמי (חולצות וגעטקס), שקיות חימום, כובע פליז וגרביים חמות. רשימת ציוד מומלצת ומלאה תופץ אליכם בהמשך.</li>
+    </ul>
+  </div>
+
+</div>
+
+<script>
+  let currentSlide = 0;
+  const slides = document.querySelectorAll('.slide');
+  const currentLabel = document.getElementById('current');
+  const totalLabel = document.getElementById('total');
+
+  totalLabel.textContent = slides.length;
+
+  function showSlide(index) {
+    slides.forEach(slide => slide.classList.remove('active'));
+    slides[index].classList.add('active');
+    currentLabel.textContent = index + 1;
+  }
+
+  function changeSlide(direction) {
+    currentSlide += direction;
+    
+    // מניעת יציאה מגבולות
+    if (currentSlide < 0) {
+      currentSlide = 0;
+    } else if (currentSlide >= slides.length) {
+      currentSlide = slides.length - 1;
+    }
+    
+    showSlide(currentSlide);
+  }
+
+  // ניווט באמצעות המקלדת
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') {
+      changeSlide(-1); // הבא (מכיוון שאנחנו ב-RTL)
+    } else if (e.key === 'ArrowRight') {
+      changeSlide(1); // הקודם
+    }
+  });
+</script>
+
+</body>
+</html>

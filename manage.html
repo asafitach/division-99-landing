@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>אזור ניהול - אוגדה 99</title>
+  
+  <!-- CSS Stylesheets -->
+  <link rel="stylesheet" href="style.css"> 
+  <link rel="stylesheet" href="manage.css">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Logo Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+</head>
+<body>
+
+  <!-- Floating Home Link -->
+  <a href="index.html" class="manage-home-float" title="חזרה לדף הבית">
+    <i class="fas fa-home"></i> חזרה לאתר
+  </a>
+
+  <div class="manage-wrapper">
+    <div class="manage-header-logo">
+      <img src="logo.png" alt="לוגו אוגדה 99" class="manage-logo">
+      <h1>אוגדה 99</h1>
+      <p class="manage-subtitle">פאנל ניהול ותכנים מוגן</p>
+    </div>
+
+    <!-- אזור התחברות -->
+    <div id="login-section">
+      <div class="auth-icon-badge">
+        <i class="fas fa-lock"></i>
+      </div>
+      <h2>כניסה למערכת</h2>
+      <p class="auth-instructions">הזן סיסמת גישה לצפייה במצגות ובחומרי הניהול</p>
+      
+      <div class="input-group">
+        <input type="password" id="password-input" placeholder="הכנס סיסמה..." autocomplete="current-password">
+        <button onclick="checkPassword()" id="login-btn">
+          <i class="fas fa-sign-in-alt"></i> היכנס
+        </button>
+      </div>
+      <p id="error-msg" class="error-text" style="display: none;">
+        <i class="fas fa-exclamation-triangle"></i> סיסמה שגויה, נסה שוב.
+      </p>
+    </div>
+
+    <!-- אזור התוכן (מוסתר כברירת מחדל) -->
+    <div id="content-section" style="display: none;">
+      <div class="admin-welcome-bar">
+        <span class="admin-badge"><i class="fas fa-user-shield"></i> מחובר כמנהל</span>
+        <button class="logout-btn" onclick="logout()">
+          <i class="fas fa-sign-out-alt"></i> התנתק
+        </button>
+      </div>
+
+      <h2 class="section-heading"><i class="fas fa-layer-group"></i> מצגות וחומרי הדרכה</h2>
+      
+      <ul class="admin-links">
+        <li>
+          <a href="preperationForDraft.html" target="_blank" class="admin-link-card featured">
+            <div class="link-icon"><i class="fas fa-chalkboard-teacher"></i></div>
+            <div class="link-details">
+              <strong>מצגת כנס מתגייסים (הכנה לגיוס)</strong>
+              <span>מצגת אינטראקטיבית לכנס ההסברה שלב ב'</span>
+            </div>
+            <div class="link-arrow"><i class="fas fa-arrow-left"></i></div>
+          </a>
+        </li>
+        <li>
+          <a href="roles.html" target="_blank" class="admin-link-card">
+            <div class="link-icon"><i class="fas fa-id-card"></i></div>
+            <div class="link-details">
+              <strong>פירוט תפקידי שלב ב'</strong>
+              <span>דף התפקידים והתקנים הפתוחים</span>
+            </div>
+            <div class="link-arrow"><i class="fas fa-arrow-left"></i></div>
+          </a>
+        </li>
+        <li>
+          <a href="personal.html" target="_blank" class="admin-link-card">
+            <div class="link-icon"><i class="fas fa-user-check"></i></div>
+            <div class="link-details">
+              <strong>בדיקת סטטוס מועמדים (אזור אישי)</strong>
+              <span>צפייה בממשק המעקב האישי של המועמדים</span>
+            </div>
+            <div class="link-arrow"><i class="fas fa-arrow-left"></i></div>
+          </a>
+        </li>
+      </ul>
+
+      <div class="admin-footer-actions">
+        <a href="index.html" class="btn-back-home">
+          <i class="fas fa-arrow-right"></i> חזרה לדף הבית של האוגדה
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="manage.js"></script>
+</body>
+</html>

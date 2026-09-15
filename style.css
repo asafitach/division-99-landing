@@ -182,6 +182,25 @@ header.scrolled .logo-img {
   width: 100%;
 }
 
+.nav-admin-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-gold) !important;
+  opacity: 0.9;
+  transition: var(--transition-smooth);
+}
+
+.nav-admin-link:hover {
+  opacity: 1;
+  text-shadow: 0 0 10px var(--color-gold-glow);
+  transform: translateY(-1px);
+}
+
+.nav-admin-link i {
+  font-size: 0.95rem;
+}
+
 .nav-cta {
   display: inline-flex;
   align-items: center;
